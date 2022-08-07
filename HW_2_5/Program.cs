@@ -13,7 +13,7 @@ namespace HW_2_5
     //б) * Рассчитать, на сколько кг похудеть или сколько кг набрать для нормализации веса.
     internal class Program
     {
-        static void Main(string[] args)
+        static double index()
         {
             double mass, growth, i, normalIndexMin, normalIndexMax;
             normalIndexMin = 18.5;
@@ -26,23 +26,30 @@ namespace HW_2_5
             Console.Clear();
             if (i < normalIndexMin)
             {
-               
+
                 double mass1 = normalIndexMin * growth * growth; //переменная для подсчёта нормального веса
                 mass = mass1 - mass;
                 Console.WriteLine($"You need to bulk up: {mass} kg");
             }
             else if (i > normalIndexMax)
             {
-                
+
                 double mass1 = normalIndexMax * growth * growth; //переменная для подсчёта нормального веса
                 mass = mass - mass1;
                 Console.WriteLine($"You need to lose weight: {mass} kg");
-            }else
+            }
+            else
             {
                 Console.WriteLine("All right");
             }
-           
-            Console.WriteLine("You body mass index: " + "{0:F}", i); //выводим индекс массы тела и округляем колличество знаков после запятой до двух символов
+            
+            return i;
+        }
+        static void Main(string[] args)
+        {
+            
+                     
+            Console.WriteLine("You body mass index: " + "{0:F}", index()); //вызываем метод index и выводим индекс массы тела и округляем колличество знаков после запятой до двух символов
             Console.ReadKey();
         }
     }
